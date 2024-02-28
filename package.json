@@ -1,0 +1,28 @@
+{
+  "name": "smart-context",
+  "version": "0.1.0",
+  "description": "Leverage React Context to optimize rendering performance by minimizing unnecessary component re-renders when state changes.",
+  "main": "index.js",
+  "types": "src/types/types.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.60"
+  },
+  "keywords": [
+    "react",
+    "react-context",
+    "performance",
+    "optimization",
+    "rendering",
+    "state-management",
+    "re-renders",
+    "react-hooks"
+  ],
+  "author": "\"rendering\",",
+  "license": "MIT"
+}
