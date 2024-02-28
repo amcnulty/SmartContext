@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "description": "Leverage React Context to optimize rendering performance by minimizing unnecessary component re-renders when state changes.",
   "main": "index.js",
-  "types": "src/types/types.ts",
+  "module": "index.js",
+  "types": "src/types/types.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
