@@ -5,6 +5,7 @@
   "main": "index.js",
   "module": "index.js",
   "types": "src/types/types.d.ts",
+  "homepage": "https://amcnulty.github.io/SmartContextDemo/",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -24,6 +25,10 @@
     "re-renders",
     "react-hooks"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/amcnulty/SmartContext.git"
+  },
   "author": "Aaron Michael McNulty",
   "license": "MIT"
 }
