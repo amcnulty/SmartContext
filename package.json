@@ -1,5 +1,5 @@
 {
-  "name": "smart-context",
+  "name": "smart-context-hooks",
   "version": "0.1.1",
   "description": "Leverage React Context to optimize rendering performance by minimizing unnecessary component re-renders when state changes.",
   "main": "index.js",
@@ -24,6 +24,6 @@
     "re-renders",
     "react-hooks"
   ],
-  "author": "\"rendering\",",
+  "author": "Aaron Michael McNulty",
   "license": "MIT"
 }

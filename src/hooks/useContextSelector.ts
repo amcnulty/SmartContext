@@ -1,17 +1,27 @@
 import React, { useCallback, useEffect, useReducer, useRef } from 'react';
-
-export interface SmartContext {
-    subscribe: Function;
-    getState: Function;
-}
+import { SmartContext } from '../types/types';
 
 /**
- * Selects portions of state from a given context by using a selector function.
- * This hook is optimized to only rerender a component if the value returned by the selector has actually updated.
- * This gets rid of context always updating the whole tree of components under their provider.
- * @param context React context to select values from.
- * @param selector The selector function used to find the state data from the given context.
- * @returns The state data from the given context for the provided selector.
+ * This hook efficiently retrieves a portion of state from a smart context using a selector function.
+ * It optimizes component re-renders by only triggering them when the selected value genuinely
+ * changes, preventing unnecessary updates and enhancing performance.
+ * @param context A React context instance created using `useSmartContext`
+ * @param selector A function that takes the context state as input and returns the specific value or slice of state you want to access.
+ * @returns The selected state value from the context, as determined by the provided selector function.
+ *
+ * @example
+ * ```javascript
+ * import { useContextSelector } from 'smart-context';
+ * import { appContext, selectCount } from '../../context/AppContext';
+ *
+ * export const MyComponent = () => {
+ *   // count will be returned with the type 'number' to match
+ *   // the return type of the selectCount selector.
+ *   const count = useContextSelector(appContext, selectCount);
+ *
+ *   return <div>Count: {count}</div>;
+ * }
+ * ```
  */
 export const useContextSelector = <T extends SmartContext, K>(
     context: React.Context<T>,

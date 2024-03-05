@@ -2,7 +2,29 @@ import React, { useMemo } from 'react';
 import { SmartContext } from '../types/types';
 
 /**
- * Use this hook to get the setting functions for a given context.
+ * This hook provides access to the state mutating functions defined on a smart context created
+ * with the useSmartContext hook.
+ * These functions allow you to update the context state in a way that optimizes re-renders.
+ * @param context A React context instance created using `useSmartContext`
+ * @returns An object containing all the state mutating functions defined on the provided context.
+ *
+ * @example
+ * ```javascript
+ * import { useContextSetters } from 'smart-context';
+ * import { appContext } from '../../context/AppContext';
+ *
+ * export const ExampleComponent = () => {
+ *   // setCount will be returned with the exact type that was defined
+ *   // in the context's interface that extended 'SmartContext'.
+ *   const { setCount } = useContextSetters(appContext);
+ *
+ *   return (
+ *       <button onClick={() => setCount((previous) => previous + 1)}>
+ *           Increment
+ *       </button>
+ *   );
+ * };
+ * ```
  */
 export const useContextSetters = <T extends SmartContext>(
     context: React.Context<T>

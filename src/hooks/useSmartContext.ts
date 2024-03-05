@@ -2,36 +2,38 @@ import { useLayoutEffect, useMemo, useRef } from 'react';
 import { SmartContext } from '../types/types';
 
 /**
- * Creates and returns a SmartContext value to be passed to your context provider.
- * @param state The state object which contains all accessable values that can be returned by your selectors
- * @param setters An object containing all of the state mutating functions that update portions of the state object.
- * @returns SmartContext to be passed to the value prop of your context provider.
+ * This hook creates a smart context value that provides efficient state management and optimization
+ * features within a React application. It enables precise control over state updates and re-renders
+ * within the context, promoting performance and flexibility.
+ * @param state An object containing the state values that can be accessed using selectors.
+ * @param setters An object containing functions that update specific parts of the state object.
+ * These functions serve as the primary mechanism for state mutations within the context.
+ * @returns A `SmartContext` object to be passed to the value prop of your context provider.
  *
  * @example
- * ```javascript
- * import { createContext, useState } from 'react';
- * import { useSmartContext } from './path/to/useSmartContext';
+ * ```typescript
+ * import { ReactNode, createContext, useState } from 'react';
+ * import { type SmartContext, useSmartContext } from 'smart-context';
  *
- * const MyContext = createContext();
- *
- * function MyProvider({ children }) {
- *   const [count, setCount] = useState(0);
- *   const [user, setUser] = useState({ username: 'example user' });
- *
- *   const value = useSmartContext({
- *     count,
- *     user,
- *   }, {
- *     setCount,
- *     setUser,
- *   });
- *
- *   return (
- *     <MyContext.Provider value={value}>
- *       {children}
- *     </MyContext.Provider>
- *   );
+ * interface AppContext extends SmartContext {
+ *   setCount: React.Dispatch<React.SetStateAction<number>>;
  * }
+ *
+ * export const appContext = createContext<AppContext>({} as AppContext);
+ *
+ * interface AppState {
+ *   count: number;
+ * }
+ *
+ * export const selectCount = (state: AppState) => state.count;
+ *
+ * export const AppContextProvider = ({ children }: { children: ReactNode }) => {
+ *   const [count, setCount] = useState(0);
+ *
+ *   const value = useSmartContext({ count }, { setCount });
+ *
+ *   return <appContext.Provider value={value}>{children}</appContext.Provider>;
+ * };
  * ```
  */
 export const useSmartContext = <T extends object>(
