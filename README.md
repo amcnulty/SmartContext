@@ -1,3 +1,5 @@
+<img src="https://res.cloudinary.com/dz54puaeo/image/upload/v1710877973/logo_m8pmcx.jpg" alt="Smart Context Hooks Logo" width="256px" height="256px" />
+
 # Smart Context Hooks
 
 **Boost performance in your React applications with optimized context management.**
