@@ -1,6 +1,6 @@
 {
   "name": "smart-context-hooks",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Leverage React Context to optimize rendering performance by minimizing unnecessary component re-renders when state changes.",
   "main": "index.js",
   "module": "index.js",
